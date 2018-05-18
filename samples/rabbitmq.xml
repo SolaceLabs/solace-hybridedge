@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:c="http://camel.apache.org/schema/spring"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+<c:camelContext>
+
+	<c:route>
+		<c:from uri="solace-jms:queue:queue1"/>
+		<c:to uri="rabbitmq://localhost/exchange1?queue=queue1"/>
+	</c:route>
+
+	<c:route>
+		<c:from uri="rabbitmq://localhost/exchange2?queue=queue2"/>
+		<c:to uri="solace-jms:topic:topic1"/>
+	</c:route>
+
+</c:camelContext>
+
+</beans>

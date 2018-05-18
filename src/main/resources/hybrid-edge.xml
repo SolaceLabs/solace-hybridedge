@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://camel.apache.org/schema/spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+<c:camelContext id="camel">
+
+<!--
+This route uses the build-in Camel Timer component.
+It passes it through our custom TimerProcessor, which creates a message body from the Timer header.
+Then it sends it to a logger and to a Solace instance with the topic 'timerTopic.'
+-->
+
+	<c:route>
+		<c:from uri="timer:timer"/>
+		<c:bean ref="timerProcessor"/>
+		<c:to uri="log:TIMER-SOLACE-LOGGER"/>
+		<c:to uri="solace-jms:topic:timerTopic"/>
+	</c:route>
+
+</c:camelContext>
+
+</beans>
