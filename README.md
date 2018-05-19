@@ -15,7 +15,7 @@ Internally, it uses [Apache Camel](http://camel.apache.org/) to connect with the
 ## Usage
 
 * Clone this repository by running
-    <pre><code>git clone https://github.com/SolaceProducts/hybrid-edge-starter.git</code></pre>
+    <pre><code>git clone https://github.com/SolaceProducts/solace-hybridedge.git</code></pre>
 
 * Edit src/main/resources/application.properties, adding the Solace host URL, message VPN name, username, and password as required. Prepend the host URL with ```smfs://``` and use the corresponding TLS/SSL port if you want to use an encrypted connection.
 The file should then look something like this:
