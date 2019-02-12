@@ -47,7 +47,7 @@ You can either rename it to hybrid-edge.xml, or change the spring.main.sources p
     <pre><code>./gradlew assemble</code></pre>
 
 * Start the application by running
-    <pre><code>java -jar build/libs/hybrid-edge-starter.jar</code></pre>
+    <pre><code>java -jar build/libs/solace-hybridedge.jar</code></pre>
 
 ## Solace JMS Endpoint Properties
 
@@ -101,6 +101,14 @@ solace.jms.reconnectRetries
 solace.jms.reconnectRetryWaitInMillis
 solace.jms.respectTtl
 solace.jms.sslCipherSuites
+solace.jms.sslConnectionDowngradeTo
+solace.jms.sslExcludedProtocols
+solace.jms.sslKeyStore
+solace.jms.sslKeyStoreFormat
+solace.jms.sslKeyStorePassword
+solace.jms.sslPrivateKeyAlias
+solace.jms.sslPrivateKeyPassword
+solace.jms.sslProtocol
 solace.jms.sslTrustedCommonNameList
 solace.jms.sslTrustStore
 solace.jms.sslTrustStoreFormat
@@ -153,7 +161,7 @@ SOLACE_JMS_MSG_VPN=vpn1
 Suppose you are subscribing from a Solace instance and publishing to another JMS broker, and you 
 don't want to acknowledge a message from Solace until you are sure that the message was received on the other broker.
 
-In this case, you want to ensure that the ```directTransport``` property is false (which is the default anyway):
+In this case, you want to ensure that the ```directTransport``` property is false:
 
 ```solace.jms.directTransport=false```
 

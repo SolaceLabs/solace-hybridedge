@@ -1,34 +1,69 @@
-plugins {
-    id 'org.springframework.boot' version '1.5.10.RELEASE'
+buildscript {
+    ext {
+        activeMQCamelVersion = "5.15.8"
+        camelVersion = "2.23.1"
+        junitVersion = "4.12"
+        solaceCamelVersion = "1.1.0"
+        springBootVersion = "2.1.2.RELEASE"
+    }
+
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+    
 }
 
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+project.group = "com.solace.hybrid-edge-starter"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 repositories {
+
+//    maven {
+//        url "http://apps-jenkins:9090/nexus/content/groups/stable"
+//    }
+
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-
-    // Spring actuator, log4j
-    compile("org.springframework.boot:spring-boot-starter-log4j2")
-    compile("org.springframework.boot:spring-boot-actuator")
-
-    // Camel and Solace
-    compile("org.apache.camel:camel-spring-boot-starter:2.21.0")
-    compile("com.solace.camel.component:camel-solace-jms:1.0.0")
-
+    // Camel and Spring Boot 
+    compile("org.apache.camel:camel-spring-boot-starter:${camelVersion}")
+    compile("com.solace.camel.component:camel-solace-jms:${solaceCamelVersion}")
+    compile("org.springframework.boot:spring-boot-starter-log4j2:${springBootVersion}")
+    
     // ActiveMQ dependencies
-    compile("org.apache.activemq:activemq-core:5.7.0")
-    compile("org.apache.activemq:activemq-camel:5.7.0")
+    compile("org.apache.camel:camel-jms:${camelVersion}")
+    compile("org.apache.activemq:activemq-camel:${activeMQCamelVersion}")
 
     // RabbitMQ dependencies
-    compile("org.apache.camel:camel-rabbitmq:2.21.0")
+    compile("org.apache.camel:camel-rabbitmq:${camelVersion}")
+
+    // Required for Java 10+
+    compile("javax.xml.bind:jaxb-api:2.3.0")
+    compile("javax.activation:activation:1.1.1")
 
     // Testing
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile ("junit:junit")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    testCompile("org.apache.camel:camel-test-spring:${camelVersion}")
+    testCompile ("junit:junit:${junitVersion}")
 }
 
 configurations {
     // We use log4j2; logback is spring's default so it needs to be excluded
-    all*.exclude module : 'logback-classic'
+    all*.exclude module : 'spring-boot-starter-logging'
 }
+
