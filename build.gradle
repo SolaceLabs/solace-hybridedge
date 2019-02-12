@@ -23,6 +23,10 @@ dependencies {
     // RabbitMQ dependencies
     compile("org.apache.camel:camel-rabbitmq:2.21.0")
 
+    // XML parsers removed from Java 10
+    compile("javax.xml.bind:jaxb-api:2.3.0")
+    compile("javax.activation:activation:1.1.1")
+
     // Testing
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile ("junit:junit")
