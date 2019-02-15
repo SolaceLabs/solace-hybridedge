@@ -56,6 +56,10 @@ dependencies {
     compile("javax.xml.bind:jaxb-api:2.3.0")
     compile("javax.activation:activation:1.1.1")
 
+    // XML parsers removed from Java 10
+    compile("javax.xml.bind:jaxb-api:2.3.0")
+    compile("javax.activation:activation:1.1.1")
+
     // Testing
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     testCompile("org.apache.camel:camel-test-spring:${camelVersion}")
