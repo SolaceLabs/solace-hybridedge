@@ -86,6 +86,7 @@ solace.jms.clientPassword
 Optional:
 
 <pre>
+solace.jms.authenticationScheme
 solace.jms.clientDescription
 solace.jms.compressionLevel
 solace.jms.connectionRetries
