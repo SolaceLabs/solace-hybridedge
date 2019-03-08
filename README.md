@@ -128,6 +128,10 @@ N.B. The clientDescription property defaults to showing the component and underl
 ```CamelSolaceJMS version 1.0.0 Camel version: 2.21.0```
 
 
+## Client Authentication
+
+By default, the authenticationScheme property has the value ```AUTHENTICATION_SCHEME_BASIC```. HybridEdge also supports ```AUTHENTICATION_SCHEME_CLIENT_CERTIFICATE```, but not ```AUTHENTICATION_SCHEME_GSS_KRB``` (Kerberos).
+
 ## Connection Factory Session Caching
 
 This component uses Spring's CachingConnectionFactory to cache connections. By default the cache size is 10.
