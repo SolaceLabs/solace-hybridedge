@@ -3,7 +3,7 @@ buildscript {
         activeMQCamelVersion = "5.15.8"
         camelVersion = "2.23.1"
         junitVersion = "4.12"
-        solaceCamelVersion = "1.2.1"
+        solaceCamelVersion = "1.3.0"
         springBootVersion = "2.1.2.RELEASE"
     }
 
