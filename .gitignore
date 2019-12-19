@@ -1,6 +1,8 @@
 bin/
 build/
+out/
 .gradle/
+.idea/
 .classpath
 .project
 .settings/org.eclipse.buildship.core.prefs
