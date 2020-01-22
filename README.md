@@ -1,5 +1,14 @@
 # HybridEdge Starter Project
 
+---
+
+**NOTICE**
+
+This public repository is no longer maintained. Commercial customers who purchased support for HybridEdge (separate from PubSub+ support), can still create tickets but issues/pull requests in this repository are turned off and no support will be given. The Solace JMS Camel component is still available from Maven central repository and its mirrors. Customers who wish to continue using Apache Camel to integrate with Solace PubSub+ event broker are encouraged to use standard Camel tooling and either the Solace JMS Camel component or one of the generic Camel JMS components available with Apache Camel.
+
+---
+
+
 ## Introduction
 
 [HybridEdge](https://solace.com/) is a Solace Corporation software product 
